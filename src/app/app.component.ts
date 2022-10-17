@@ -110,6 +110,8 @@ export class AppComponent implements OnInit {
       }
 
       let currentTotal = this.currentTotal + this.add(currentFrame.first, currentFrame.second);
+      currentTotal = this.add(currentTotal, currentFrame.third);
+
       if (this.isStrike(currentFrame)) {
         currentTotal += this.addStrikeBonus(index);
       }
