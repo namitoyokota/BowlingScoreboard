@@ -141,7 +141,7 @@ export class AppComponent implements OnInit {
     const nextFrame = this.frameList[index + 1];
 
     if (this.isLastFrame(currentFrame)) {
-      return this.getNum(currentFrame.third);
+      return 0;
     } else {
       return this.getNum(nextFrame.first);
     }
