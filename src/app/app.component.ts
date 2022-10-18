@@ -62,14 +62,14 @@ export class AppComponent implements OnInit {
         } else if (frame.second === null) {
           frame.second = roll;
           
-          if (this.isSpare(frame) || this.isDoubleStrike(frame)) {
+          if (this.isSpare(frame) || this.isStrike(frame)) {
             this.lastRolledNumber = 0;
           } else {
             this.lastRolledNumber = 11;
           }
 
           break;
-        } else if (frame.third === null && this.isSpare(frame) || this.isDoubleStrike(frame)) {
+        } else if (frame.third === null && this.isSpare(frame) || this.isStrike(frame)) {
           frame.third = roll;
           this.lastRolledNumber = 11;
           break;
@@ -160,11 +160,6 @@ export class AppComponent implements OnInit {
   /** Returns true if first and second roll knocked all pins */
   private isSpare(frame: Frame): boolean {
     return !this.isStrike(frame) && this.add(frame.first, frame.second) === 10;
-  }
-
-  /** Returns true if last throw has 2 strikes */
-  private isDoubleStrike(frame: Frame): boolean {
-    return frame.first === 10 && frame.second === 10;
   }
 
   /** Gets number even if null value is passed in */
